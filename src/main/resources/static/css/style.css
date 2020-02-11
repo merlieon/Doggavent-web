@@ -1,0 +1,42 @@
+body{
+    background-image: url("/images/background.jpg");
+    color: #E2E2E2;
+}
+
+ul{
+    text-align: center;
+    text-decoration: none;
+}
+
+li{
+
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    padding-top: 2%;
+    padding-left: 5%;
+}
+
+li a{
+    text-decoration: none;
+}
+
+li a:active, a:visited, a:checked{
+    color: #E2E2E2;
+}
+li a:hover{
+    color: lightslategrey;
+}
+
+.current a{
+    color: lightslategrey;
+}
+
+.eventTable{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.eventTitle{
+    font-size: 25px;
+}

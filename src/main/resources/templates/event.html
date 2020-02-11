@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li class="current"><a href="/events">Events</a></li>
+        <li><a href="/login">Login</a></li>
+    </ul>
+</header>
+<table class="eventTable" th:each="event : ${eventList}">
+    <div  th:if="${event.getId()} == ${currentId}">
+        <tr class="eventTitle">
+            <th th:text="${event.getEventTitle()}"></th>
+        </tr>
+        <tr>
+            <td th:text="${event.getEventContent()}"></td>
+        </tr>
+    </div>
+
+</table>
+
+</body>
+</html>
