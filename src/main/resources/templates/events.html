@@ -20,6 +20,9 @@
 <a href="/addevent" class="addNewEvent"> New Event </a>
 
 <table>
+    <tr>
+        <th>Events:</th>
+    </tr>
     <tr th:each="event : ${eventList}">
         <td><a th:text="${event.getEventTitle()}" th:href="@{events/{id}(id=${event.getId()})}"></a></td>
     </tr>
