@@ -50,10 +50,24 @@ public class EventController {
                 event.setCreatedDate(e.getCreatedDate());
             }
         }
-        System.out.println(event.getEventContent());
         model.addAttribute("event", event);
         model.addAttribute("currentId", id);
         return "event";
+    }
+
+    // Deleting event
+    @PostMapping("/events/{id}")
+    public String deleteEvent(@PathVariable("id") int id, SessionStatus status){
+        String sId = Integer.toString(id);
+        eventService.deleteEvent("https://doggavent.herokuapp.com/api/event/{id}", sId);
+        status.setComplete();
+        return "redirect:../eventdelete_success";
+    }
+
+    //deletedevent success message
+    @GetMapping("/eventdelete_success")
+    public String getEventDeleteSuccess(){
+        return "eventdelete_success";
     }
 
     // GetMappig for Creating new event
@@ -80,10 +94,6 @@ public class EventController {
     }
     //ResponseEntity(HttpStatus.CREATED)
 
-    @DeleteMapping("/events/{id}")
-    public ResponseEntity<String> deleteEvent(@PathVariable("id") String id, Model model){
-        model.addAttribute("deleteEvent", eventService.deleteEvent("https://doggavent.herokuapp.com/api/event/{id}", id));
-        return new ResponseEntity(HttpStatus.OK);
-    }
+
 
 }

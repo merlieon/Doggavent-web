@@ -28,8 +28,7 @@
     </tr>
 </table>
 
-<form action="#" th:action="@{events/{id}(id=${event.getId()})}" th:method="delete">
-
+<form action="#" th:action="${currentId}" th:method="delete" method="post">
     <input type="submit" value="Delete event">
 </form>
 </body>
