@@ -16,6 +16,7 @@ public class UserService {
 
     HttpHandler httpHandler = new HttpHandler();
 
+    // Getting all users to list
     public List<User> getAllUsers() throws IOException, JSONException {
         String url = "https://doggavent.herokuapp.com/api/json/users";
         JSONArray userResponse = new JSONArray(httpHandler.httpGetConnection(url).toString());

@@ -40,3 +40,10 @@ li a:hover{
 .eventTitle{
     font-size: 25px;
 }
+
+.addNewEvent{
+    float: right;
+    padding-right: 5%;
+    font-size: 25px;
+    text-decoration: none;
+}

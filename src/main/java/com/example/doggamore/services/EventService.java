@@ -9,8 +9,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 @Service
 public class EventService {
@@ -18,7 +22,8 @@ public class EventService {
     @Autowired
     HttpHandler httpHandler;
 
-    public List<Event> getAllEvents() throws IOException, JSONException {
+    // Getting all events to list
+    public List<Event> getAllEvents() throws IOException, JSONException, ParseException {
         String url = "https://doggavent.herokuapp.com/api/json/events";
         JSONArray eventResponse = new JSONArray(httpHandler.httpGetConnection(url).toString());
 
@@ -27,16 +32,16 @@ public class EventService {
             int id = eventResponse.getJSONObject(i).getInt("id");
             String eventTitle = eventResponse.getJSONObject(i).getString("eventTitle");
             String eventContent = eventResponse.getJSONObject(i).getString("eventContent");
-
-            eventList.add(new Event(id,eventTitle,eventContent));
+            String eventCreatedDate = eventResponse.getJSONObject(i).getString("createdDate");
+            eventList.add(new Event(id,eventTitle,eventContent,eventCreatedDate));
 
         }
         return eventList;
     }
 
 
-    public void createEvent(String  url) throws IOException {
-        Event newEvent = new Event(100,"new titlsdfsdfe", "new contasdasdsadent");
+    //Creating event
+    public void createEvent(String  url, Event newEvent) throws IOException {
         RestTemplate restTemplate = new RestTemplate();
         Event eventResult = restTemplate.postForObject(url,newEvent,Event.class);
     }

@@ -16,16 +16,16 @@
         <li><a href="/login">Login</a></li>
     </ul>
 </header>
-<table class="eventTable" th:each="event : ${eventList}">
-    <div  th:if="${event.getId()} == ${currentId}">
+<table class="eventTable">
         <tr class="eventTitle">
             <th th:text="${event.getEventTitle()}"></th>
         </tr>
         <tr>
             <td th:text="${event.getEventContent()}"></td>
         </tr>
-    </div>
-
+    <tr>
+        <td th:text="${event.getCreatedDate()}"></td>
+    </tr>
 </table>
 
 </body>

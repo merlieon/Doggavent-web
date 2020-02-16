@@ -17,10 +17,14 @@
     </ul>
 </header>
 
-<form method="post" th:action="@{/addevent}">
-    <p>title</p>
-    <input type="text">
-    <input type="submit">
+<form method="post" action="/events" th:action="@{/addevent}" th:object="${createEvent}">
+    <p>Title:</p>
+    <input type="text" th:field="*{eventTitle}">
+    <p>Context:</p>
+    <textarea th:field="*{eventContent}"></textarea>
+    <br>
+    <br>
+    <input type="submit" value="Add new Event">
 </form>
 
 </body>

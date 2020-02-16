@@ -18,12 +18,14 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    //Getting all users
     @GetMapping()
     public String getUser() throws IOException, JSONException {
         userService.getAllUsers();
         return "userid = ";
     }
 
+    // creating user (not implemented)
     @PostMapping
     public String createUser(){
         return "creat euser;";
