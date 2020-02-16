@@ -66,10 +66,10 @@ li a:hover{
 }
 
 .Events th{
-    font-size: 20px;
+    font-size: 23px;
 }
 
-.Events a,a:active, a:visited, a:checked{
+.Events a{
     text-decoration: underline;
-    color: #E2E2E2;
+    color: #ccc1c0;
 }

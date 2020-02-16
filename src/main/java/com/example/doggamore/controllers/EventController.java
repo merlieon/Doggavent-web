@@ -56,11 +56,10 @@ public class EventController {
     }
 
     // Deleting event
-    @PostMapping("/events/{id}")
-    public String deleteEvent(@PathVariable("id") int id, SessionStatus status){
+    @PostMapping(path = "/events/{id}")
+    public String deleteEvent(@PathVariable("id") int id){
         String sId = Integer.toString(id);
         eventService.deleteEvent("https://doggavent.herokuapp.com/api/event/{id}", sId);
-        status.setComplete();
         return "redirect:../eventdelete_success";
     }
 
