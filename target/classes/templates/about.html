@@ -11,21 +11,15 @@
 <header>
     <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li class="current"><a href="/events">Events</a></li>
+        <li class="current"><a href="/about">About</a></li>
+        <li><a href="/events">Events</a></li>
         <li><a href="/login">Login</a></li>
     </ul>
 </header>
 
-<a href="/addevent" class="addNewEvent"> New Event </a>
-
-<table class="Events" th:class="Events">
-    <tr>
-        <th>Events:</th>
-    </tr>
-    <tr th:each="event : ${eventList}">
-        <td><a th:text="${event.getEventTitle()}" th:href="@{events/{id}(id=${event.getId()})}"></a></td>
-    </tr>
-</table>
+<span class="center">
+<p>This is a school project for using REST API. This application do GET and POST Requests for api.</p>
+<p>There was a plan to implement User Login and a User panel for more security training but time was an issue.</p>
+</span>
 </body>
 </html>

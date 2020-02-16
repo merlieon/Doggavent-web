@@ -46,5 +46,14 @@ public class EventService {
         Event eventResult = restTemplate.postForObject(url,newEvent,Event.class);
     }
 
+    public String deleteEvent(String url, String id){
+        String uri = url;
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("id", id);
+
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.delete(uri, params);
+        return "delete";
+    }
 
 }

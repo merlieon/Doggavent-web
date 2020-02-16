@@ -13,11 +13,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 
+import javax.jws.WebParam;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 
 @Controller
 public class EventController {
@@ -78,5 +80,10 @@ public class EventController {
     }
     //ResponseEntity(HttpStatus.CREATED)
 
+    @DeleteMapping("/events/{id}")
+    public ResponseEntity<String> deleteEvent(@PathVariable("id") String id, Model model){
+        model.addAttribute("deleteEvent", eventService.deleteEvent("https://doggavent.herokuapp.com/api/event/{id}", id));
+        return new ResponseEntity(HttpStatus.OK);
+    }
 
 }

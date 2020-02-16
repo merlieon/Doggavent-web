@@ -26,7 +26,6 @@
     <tr th:each="event : ${eventList}">
         <td><a th:text="${event.getEventTitle()}" th:href="@{events/{id}(id=${event.getId()})}"></a></td>
     </tr>
-
 </table>
 </body>
 </html>
