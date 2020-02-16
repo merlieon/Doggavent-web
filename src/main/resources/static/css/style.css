@@ -64,3 +64,11 @@ li a:hover{
 .Events{
     text-align: center;
 }
+
+.Events th{
+    font-size: 20px;
+}
+
+.Events a{
+    text-decoration: none;
+}
