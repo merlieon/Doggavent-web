@@ -69,6 +69,7 @@ li a:hover{
     font-size: 20px;
 }
 
-.Events a{
-    text-decoration: none;
+.Events a,a:active, a:visited, a:checked{
+    text-decoration: underline;
+    color: #E2E2E2;
 }
